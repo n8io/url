@@ -23,6 +23,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist/**/*.*"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && tsup src/index.ts --treeshake --format cjs,esm --dts",
