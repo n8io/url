@@ -7,6 +7,9 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,5 +24,10 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: 🚨 Lint code
         run: pnpm run lint
+      - name: 🧪 Run Tests
+        run: pnpm run test
+      - name: 📔 Report Coverage
+        if: always() # Also generate the report if tests are failing
+        uses:  davelosert/vitest-coverage-report-action@v2
       - name: 🧱 Build
         run: npm run build
