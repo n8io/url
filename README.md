@@ -86,7 +86,7 @@ It may not be immediately clear, but this approach's developer experience is "Ju
   -  Low readability
 - 👎 Need to stringify values for search params
 
-##### Via `url`...
+##### Via `URL`...
 
 ```ts
 import { URL } from '@n8io/url'
