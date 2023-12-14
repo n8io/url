@@ -108,34 +108,6 @@ console.log(url.href) // https://api.github.com/users/n8io/repos?page=1&pageSize
 
 Look at those ergonomics 🔥!
 
-## Options
-
-Let's dive in to the `url` signature.
-
-```ts
-<T extends string = string>(
-  params: {
-    baseUrl: URL | string
-    pathname?: T
-    routeParams?: RouteParameters<T>
-    searchParams?: SearchParameters
-  },
-  options?: {
-    allowRouteParamNulls?: boolean
-    allowSearchParamNulls?: boolean
-  }
-): URL
-```
-
-- `params` - Required
-  - `baseUrl` - Required. The root url to copy and mutate on.
-  - `pathname` - Optional. The tokenized pathname. E.g `/users/:id`
-  - `routeParams` - Optional. An object containing all the route parameters. E.g. `{ id: 42 }`
-  - `searchParams` - Optional. An object containing all the search parameters. E.g. `{ page: 1, pageSize: 10 }`
-- `options` - Optional
-  - `allowRouteParamNulls` - Optional. Whether or not null values in the search params should be added to the resulting URL's route parameters. Defaults to `false`.
-  - `allowSearchParamNulls` - Optional. Whether or not null values in the search params should be added to the resulting URL's search parameters. Defaults to `false`.
-
 ## Contributing
 
 We welcome contributions from the community. If you'd like to contribute to this project, please follow these steps:
