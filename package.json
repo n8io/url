@@ -13,6 +13,9 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "packageManager": "pnpm",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./dist && tsup src/index.ts --treeshake --format cjs,esm --dts",
