@@ -1,7 +1,7 @@
 {
   "name": "@n8io/url",
   "description": "🌐 A tiny library that is meant to be a drop in replacement for the native `URL` class with some extra functionality to hydrate route and search parameters.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Nate Clark",
     "url": "https://github.com/n8io"
