@@ -23,6 +23,8 @@ jobs:
           cache: "pnpm"
       - name: 🔽 Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: 🧪 Run Tests
+        run: pnpm run test
       - name: 📘 Create PR or Publish
         uses: changesets/action@v1
         with:

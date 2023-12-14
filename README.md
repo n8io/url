@@ -2,8 +2,9 @@
 
 🌐 A tiny library that is meant to be a drop in replacement for the native `URL` class with some extra functionality to hydrate route and search parameters.
 
-![Issues](https://img.shields.io/github/issues/n8io/url)
-![License](https://img.shields.io/github/license/n8io/url)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-100%25-brightgreen)
+[![Issues](https://img.shields.io/github/issues/n8io/url)](https://github.com/n8io/url/issues)
+[![License](https://img.shields.io/github/license/n8io/url)](https://github.com/n8io/url/blob/main/LICENSE)
 
 ## Basic Usage
 
