@@ -35,9 +35,9 @@ pnpm install @n8io/url
 This library provides the following utility functions:
 
 - [`URL`](#url) - A drop in replacement for the native `URL` interface, supercharged with route and search parameter hydration
-- [`url(params, options?): URL`](#url-util) - A utility to generate a hydrated `URL` from a base url, route, and search parameters
-- [`hydrateRoute(route, params, options?)`](#hydrateroute) - Given a route (e.g. `/dogs/:breed`), hydrate the route with a **type safe** route params object (e.g. `{ breed: 'pug' }`)
-- [`hydrateSearchParams(route, params, options?): URL`](hydreatesearchparams) - Given a route, hydrate the route's search parameters via a plain old javascript object (e.g. `{ utm_source: 'facebook' }`) while respecting existing values.
+- [`url(params, options?): URL`](#urlparams-options-url) - A utility to generate a hydrated `URL` from a base url, route, and search parameters
+- [`hydrateRoute(route, params, options?): string`](#hydraterouteroute-params-options-string) - Given a route (e.g. `/dogs/:breed`), hydrate the route with a **type safe** route params object (e.g. `{ breed: 'pug' }`)
+- [`hydrateSearchParams(route, params, options?): string`](#hydratesearchparamsroute-params-options-string) - Given a route, hydrate the route's search parameters via a plain old javascript object (e.g. `{ utm_source: 'facebook' }`) while respecting existing values.
 
 ### `URL`
 
@@ -121,9 +121,9 @@ const hydratedUrl = url(params, options)
 // https://api.github.com/users/n8io/repos?page=1&per_page=25&sort=name&direction=asc
 ```
 
-### `hydrateRoute(route, params, options?): URL`
+### `hydrateRoute(route, params, options?): string`
 
-Given a route and route params return a `URL` instance.
+Given a route and route params return a hydrated route string.
 
 It takes three parameters:
 
@@ -141,10 +141,10 @@ const params = { username: 'n8io' }
 const options = { allowNull: false }
 
 const hydratedRoute = hydrateRoute(route, params, options)
-// https://api.github.com/users/n8io/repos
+// /users/n8io/repos
 ```
 
-### `hydrateSearchParams(route, params, options?): URL`
+### `hydrateSearchParams(route, params, options?): string`
 
 This function hydrates a route's search parameters via a plain old javascript object, all while respecting existing values.
 
@@ -163,8 +163,8 @@ const route = '/users/n8io/repos'
 const params = { page: 1, per_page: 25, sort: 'name', direction: 'asc' }
 const options = { allowNull: false }
 
-const hydratedUrl = hydrateSearchParams(route, params, options)
-// https://api.github.com/users/n8io/repos?page=1&per_page=25&sort=name&direction=asc
+const hydratedSearchParams = hydrateSearchParams(route, params, options)
+// /users/n8io/repos?page=1&per_page=25&sort=name&direction=asc
 ```
 
 ## Contributing
