@@ -1,5 +1,11 @@
 # @n8io/url
 
+## 0.1.4
+
+### Patch Changes
+
+- 3843c1a: 📘 Update docs
+
 ## 0.1.3
 
 ### Patch Changes
