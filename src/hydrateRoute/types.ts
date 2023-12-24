@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import { S } from 'ts-toolbelt'
 
 type AllowedPrimitives = bigint | boolean | null | number | string | symbol
@@ -15,3 +16,4 @@ type NonEmptyObject<T extends string> = keyof RouteParametersMap<T> extends [nev
 type RouteParameters<T extends string = string> = NonEmptyObject<T>
 
 export type { RouteParameters }
+/* v8 ignore end */
