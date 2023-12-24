@@ -1,3 +1,4 @@
+/* v8 ignore start */
 import { assertType, describe, test } from 'vitest'
 import { RouteParameters } from './types'
 
@@ -21,3 +22,4 @@ describe('RouteParameters', () => {
     })
   })
 })
+/* v8 ignore end */
