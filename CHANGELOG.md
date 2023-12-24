@@ -1,5 +1,11 @@
 # @n8io/url
 
+## 0.1.3
+
+### Patch Changes
+
+- 55a835d: 📘 Update README
+
 ## 0.1.2
 
 ### Patch Changes
