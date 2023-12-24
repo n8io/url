@@ -33,7 +33,7 @@
     "format": "biome check --apply **/*.ts",
     "lint": "biome lint ./src && tsc",
     "release": "pnpm run build && pnpm update-badge && changeset publish",
-    "test": "vitest --coverage"
+    "test": "vitest --coverage --typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
