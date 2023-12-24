@@ -1,11 +1,6 @@
 import { InvalidParameterTypeError, RequiredParameterMissingError } from '../customErrors'
 import { RouteParameters } from './types'
 
-type Nullish = null | undefined
-type SupportedPrimitive = bigint | boolean | number | string
-type RouteParamValue = Nullish | SupportedPrimitive
-type RouteParams = Record<string, RouteParamValue>
-
 type Options = {
   allowNull?: boolean
 }
@@ -61,5 +56,4 @@ const hydrateRoute = <T extends string = string>(route: T, params: Params<T>, op
   return url.href.replace(url.origin, '')
 }
 
-export type { RouteParams }
 export { hydrateRoute, invariantValidateParams }

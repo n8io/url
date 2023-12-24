@@ -40,7 +40,7 @@ const urlToPathnameSansOrigin = (url: URL) => {
   return url.href.replace(root, '')
 }
 
-const pathnameSansRootToUrl = (pathnameSansOrigin: string, origin: string) => new URL(`${origin}${pathnameSansOrigin}`)
+const pathnameAndSearchToUrl = (pathnameSansOrigin: string, origin: string) => new URL(`${origin}${pathnameSansOrigin}`)
 
 const invariantValidateParams = ({ baseUrl }: Params) => {
   try {
@@ -71,14 +71,14 @@ const url = <T extends string = string>(
     allowNull: allowRouteParamNulls,
   })
 
-  const pathnameSansOrigin = urlToPathnameSansOrigin(url)
+  const urlSansOrigin = urlToPathnameSansOrigin(url)
 
   const pathnameWithSearch = hydrateSearchParams(
-    { params: searchParams, route: pathnameSansOrigin },
+    { params: searchParams, route: urlSansOrigin },
     { allowNull: allowSearchParamNulls }
   )
 
-  const output = pathnameSansRootToUrl(pathnameWithSearch, urlToRoot(url))
+  const output = pathnameAndSearchToUrl(pathnameWithSearch, urlToRoot(url))
 
   return output
 }
@@ -94,8 +94,8 @@ class _URL<T extends string = string> extends globalThis.URL {
   #isInitialized = false
   #config: URLConfig<T> = {}
 
-  constructor(base: URLParameters[0], url?: URLParameters[1], config?: URLConfig<T>) {
-    super(base, url)
+  constructor(input: URLParameters[0], base?: URLParameters[1], config?: URLConfig<T>) {
+    super(input, base)
 
     const pathname = config?.pathname ?? (this.pathname as T | undefined)
 
