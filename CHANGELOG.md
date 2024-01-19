@@ -1,5 +1,11 @@
 # @n8io/url
 
+## 0.1.5
+
+### Patch Changes
+
+- ef837ce: chore: 📘 Add demo link to README
+
 ## 0.1.4
 
 ### Patch Changes
