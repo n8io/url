@@ -41,7 +41,7 @@ This library provides the following utility functions:
 - [`URL`](#url) - A drop in replacement for the native `URL` interface, supercharged with route and search parameter hydration
 - [`url(params, options?): URL`](#urlparams-options-url) - A utility to generate a hydrated `URL` from a base url, route, and search parameters
 - [`hydrateRoute(route, params, options?): string`](#hydraterouteroute-params-options-string) - Given a route (e.g. `/dogs/:breed`), hydrate the route with a **type safe** route params object (e.g. `{ breed: 'pug' }`)
-- [`hydrateSearchParams(route, params, options?): string`](#hydratesearchparamsroute-params-options-string) - Given a route, hydrate the route's search parameters via a plain old javascript object (e.g. `{ utm_source: 'facebook' }`) while respecting existing values.
+- [`hydrateSearchParams({ params, route }, options?): string`](#hydratesearchparams-params-route--options-string) - Given a route, hydrate the route's search parameters via a plain old javascript object (e.g. `{ utm_source: 'facebook' }`) while respecting existing values.
 
 ### `URL`
 
@@ -154,14 +154,14 @@ const hydratedRoute = hydrateRoute(route, params, options)
 // /users/n8io/repos
 ```
 
-### `hydrateSearchParams(route, params, options?): string`
+### `hydrateSearchParams({ params, route? }, options?): string`
 
 This function hydrates a route's search parameters via a plain old javascript object, all while respecting existing values.
 
 It takes three parameters:
 
-- `route`: A string that represents the route.
 - `params`: A search params object (e.g. `{ utm_source: 'facebook' }`).
+- `route`: A string that represents the route.
 - `options?`: An optional object that includes `allowNull`.
 
 #### Example usage: `hydrateSearchParams`
@@ -173,7 +173,7 @@ const route = '/users/n8io/repos'
 const params = { page: 1, per_page: 25, sort: 'name', direction: 'asc' }
 const options = { allowNull: false }
 
-const hydratedSearchParams = hydrateSearchParams(route, params, options)
+const hydratedSearchParams = hydrateSearchParams({ params, route }, options)
 // /users/n8io/repos?page=1&per_page=25&sort=name&direction=asc
 ```
 
