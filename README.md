@@ -30,6 +30,10 @@ const url = new URL(
 pnpm install @n8io/url
 ```
 
+## Demo
+
+Don't take my word for it, [play with the demo examples](https://stackblitz.com/edit/n8io-url?file=index.ts).
+
 ## APIs
 
 This library provides the following utility functions:
