@@ -1,6 +1,6 @@
 # `@n8io/url`
 
-🌐 A tiny library that is meant to be a drop in replacement for the native `URL` class with some extra functionality to hydrate route and search parameters.
+🌐 A tiny library that **is a drop in replacement for the native `URL` class** with some extra functionality to hydrate route and search parameters.
 
 [![check-code-coverage](https://img.shields.io/badge/code--coverage-100%25-brightgreen)](https://github.com/n8io/url/actions/workflows/publish.yml?query=branch%3Amain)
 [![Issues](https://img.shields.io/github/issues/n8io/url)](https://github.com/n8io/url/issues)
@@ -30,7 +30,7 @@ const url = new URL(
 pnpm install @n8io/url
 ```
 
-## API
+## APIs
 
 This library provides the following utility functions:
 
@@ -47,7 +47,7 @@ The [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) and [`URLSearc
 
 This library's `URL` function provides a more ergonomic api for generating a URL from route and search parameters.
 
-#### Example usage
+#### Example usage: `URL`
 
 ```ts
 const githubApiUrl = 'https://api.github.com/'
@@ -91,6 +91,12 @@ const url = new URL(
 )
 ```
 
+#### Frequently Asked Questions
+
+##### Do I have to learn yet another api?
+
+No. When you create a `new URL(...)`, you get an instance of the native URL class. We're not modifying or monkey patching anything in the native URL api. All we're doing is overlaying our own class to handle a 3rd `options` parameter before returning the new instance. You can be confident that if/when future changes are made to the native URL class your instances will automatically have access to these changes, because again, we're returning you a native URL instance.
+
 ### `url(params, options?): URL`
 
 Given a base url, route, and search parameters it returns a fully hydrated `URL` instance.
@@ -100,7 +106,7 @@ It takes two parameters:
 - `params`: An object that includes `baseUrl`, `pathname?`, `routeParams?`, and `searchParams?`.
 - `options?`: An optional object that includes `allowRouteParamNulls` and `allowSearchParamNulls`
 
-#### Example usage
+#### Example usage: `url`
 
 ```ts
 import { url } from '@n8io/url'
@@ -131,7 +137,7 @@ It takes three parameters:
 - `params`: A route params object (e.g. `{ breed: 'pug' }`).
 - `options?`: An optional object that includes `allowNull`.
 
-#### Example usage
+#### Example usage: `hydrateRoute`
 
 ```ts
 import { hydrateRoute } from '@n8io/url'
@@ -154,7 +160,7 @@ It takes three parameters:
 - `params`: A search params object (e.g. `{ utm_source: 'facebook' }`).
 - `options?`: An optional object that includes `allowNull`.
 
-#### Example usage
+#### Example usage: `hydrateSearchParams`
 
 ```ts
 import { hydrateSearchParams } from '@n8io/url'
